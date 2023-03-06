@@ -4,6 +4,8 @@ import Card from './components/Card';
 
 class App extends React.Component {
   render() {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare, cardTrunfo, /*isSaveButtonDisabled /* hasTrunfo */ } = this.props;
     return (
       <div>
         <form>
