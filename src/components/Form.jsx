@@ -1,53 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import Card from './Card';
 
 class Form extends React.Component {
   // constructor() {
   //   super();
 
-  // this.state = {
-  //   cardName: '',
-  //   cardDescription: '',
-  //   cardAttr1: '',
-  //   cardAttr2: '',
-  //   cardAttr3: '',
-  //   cardImage: '',
-  //   cardRare: '',
-  //   cardTrunfo: '',
-  //   isSaveButtonDisabled: '',
-  // };
-  // Função handleChange genérica para componentes controlados pelo estado
-  // sem checkbox - armazenar o valor de cada input no estado do componente
-  // handleChange = ({ target }) => {
-  //   const { name, value } = target;
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // };
+  //   this.onInputChange = this.onInputChange.bind(this);
+  //   this.onSaveButtonClick = this.onSaveButtonClick.bind(this);
+  // }
 
-  // com checkbox -O valor relevante do checkbox que precisamos armazenar é um booleano que está na propriedade checked, não no value.
-  // handleChange({ target }) {
+  // // componentes controlados pelo estado
+  // onInputChange = ({ target }) => {
   //   const { name } = target;
-  //   const value = target.type === 'checkbox' ? target.checked : target.value;
-
+  //   const value = (target.type === 'checkbox') ? target.checked : target.value;
   //   this.setState({
   //     [name]: value,
   //   });
-  // }
-  // }
-
-  // onInputChange = (event) => {
-  //   console.log(event.target.value);
   // };
 
-  // onSaveButtonClick = (event) => {
+  // onSaveButtonClick = ({ event }) => {
   //   console.log(event.target.value);
   // };
 
   render() {
-    const { onInputChange, onSaveButtonClick } = this.props;
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, isSaveButtonDisabled /* hasTrunfo */ } = this.props;
+      cardRare, cardTrunfo, isSaveButtonDisabled, /* hasTrunfo, */
+      onInputChange, onSaveButtonClick } = this.props;
     return (
       <>
         <label htmlFor="name">
@@ -140,34 +119,19 @@ class Form extends React.Component {
   }
 }
 
-Form.defaultProps = {
-  cardName: [],
-  cardDescription: [],
-  cardAttr1: [],
-  cardAttr2: [],
-  cardAttr3: [],
-  cardImage: [],
-  cardRare: [],
-  cardTrunfo: [],
-  // hasTrunfo: [],
-  isSaveButtonDisabled: [],
-  onInputChange: [],
-  onSaveButtonClick: [],
-};
-
 Form.propTypes = {
-  cardName: PropTypes.string,
-  cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.string,
-  cardAttr2: PropTypes.string,
-  cardAttr3: PropTypes.string,
-  cardImage: PropTypes.string,
-  cardRare: PropTypes.string,
-  cardTrunfo: PropTypes.bool,
-  // hasTrunfo: PropTypes.bool,
-  isSaveButtonDisabled: PropTypes.bool,
-  onInputChange: PropTypes.func,
-  onSaveButtonClick: PropTypes.func,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  // hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
 export default Form;

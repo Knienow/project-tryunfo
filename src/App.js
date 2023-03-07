@@ -4,9 +4,33 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
-  render() {
+  state = {
+   cardName: '',
+   cardDescription: '',
+   cardAttr1: '',
+   cardAttr2: '',
+   cardAttr3: '',
+   cardImage: '',
+   cardRare: '',
+   cardTrunfo: false,
+   isSaveButtonDisabled: true,
+  };
+
+  onInputChange = ({ target }) => {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.state;
+  };
+
+ render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo /* isSaveButtonDisabled */ /* hasTrunfo */ } = this.props;
+      cardRare, cardTrunfo, isSaveButtonDisabled } = this.state;
     return (
       <div>
         <form>
@@ -19,6 +43,9 @@ class App extends React.Component {
             cardImage={ cardImage }
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
+            onInputChange={ this.onInputChange }
+            isSaveButtonDisabled={ isSaveButtonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
           />
         </form>
         <Card
@@ -36,26 +63,15 @@ class App extends React.Component {
   }
 }
 
-App.defaultProps = {
-  cardName: [],
-  cardDescription: [],
-  cardAttr1: [],
-  cardAttr2: [],
-  cardAttr3: [],
-  cardImage: [],
-  cardRare: [],
-  cardTrunfo: [],
-};
-
 App.propTypes = {
-  cardName: PropTypes.string,
-  cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.string,
-  cardAttr2: PropTypes.string,
-  cardAttr3: PropTypes.string,
-  cardImage: PropTypes.string,
-  cardRare: PropTypes.string,
-  cardTrunfo: PropTypes.bool,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
 };
 
 export default App;

@@ -5,6 +5,7 @@ class Card extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo } = this.props;
+    console.log(cardTrunfo);
     return (
       <>
         <p
@@ -44,32 +45,23 @@ class Card extends React.Component {
         >
           { cardRare }
         </p>
-        { cardTrunfo && <p data-testid="trunfo-card"> Super Trunfo</p> }
+        <p>
+          { cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p> }
+        </p>
       </>
     );
   }
 }
 
-Card.defaultProps = {
-  cardName: [],
-  cardDescription: [],
-  cardAttr1: [],
-  cardAttr2: [],
-  cardAttr3: [],
-  cardImage: [],
-  cardRare: [],
-  cardTrunfo: [],
-};
-
 Card.propTypes = {
-  cardName: PropTypes.string,
-  cardDescription: PropTypes.string,
-  cardAttr1: PropTypes.string,
-  cardAttr2: PropTypes.string,
-  cardAttr3: PropTypes.string,
-  cardImage: PropTypes.string,
-  cardRare: PropTypes.string,
-  cardTrunfo: PropTypes.bool,
+  cardName: PropTypes.string.isRequired,
+  cardDescription: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.string.isRequired,
+  cardAttr2: PropTypes.string.isRequired,
+  cardAttr3: PropTypes.string.isRequired,
+  cardImage: PropTypes.string.isRequired,
+  cardRare: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
 };
 
 export default Card;
