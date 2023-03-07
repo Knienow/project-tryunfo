@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from './components/Form';
 import Card from './components/Card';
-import PropTypes from 'prop-types';
 
 class App extends React.Component {
   render() {
