@@ -5,7 +5,7 @@ import Card from './components/Card';
 class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, /*isSaveButtonDisabled /* hasTrunfo */ } = this.props;
+      cardRare, cardTrunfo /* isSaveButtonDisabled */ /* hasTrunfo */ } = this.props;
     return (
       <div>
         <form>
@@ -34,5 +34,27 @@ class App extends React.Component {
     );
   }
 }
+
+App.defaultProps = {
+  cardName: [],
+  cardDescription: [],
+  cardAttr1: [],
+  cardAttr2: [],
+  cardAttr3: [],
+  cardImage: [],
+  cardRare: [],
+  cardTrunfo: [],
+};
+
+App.propTypes = {
+  cardName: PropTypes.string,
+  cardDescription: PropTypes.string,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
+  cardImage: PropTypes.string,
+  cardRare: PropTypes.string,
+  cardTrunfo: PropTypes.bool,
+};
 
 export default App;
