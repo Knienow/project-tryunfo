@@ -1,20 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
   state = {
-   cardName: '',
-   cardDescription: '',
-   cardAttr1: '',
-   cardAttr2: '',
-   cardAttr3: '',
-   cardImage: '',
-   cardRare: '',
-   cardTrunfo: false,
-   isSaveButtonDisabled: true,
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: '',
+    cardAttr2: '',
+    cardAttr3: '',
+    cardImage: '',
+    cardRare: '',
+    cardTrunfo: false,
+    isSaveButtonDisabled: true,
   };
+  // this.onInputChange = this.onInputChange.bind(this);
 
   onInputChange = ({ target }) => {
     const { name } = target;
@@ -25,10 +27,10 @@ class App extends React.Component {
   };
 
   onSaveButtonClick = () => {
-    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.state;
+    // const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3 } = this.state;
   };
 
- render() {
+  render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo, isSaveButtonDisabled } = this.state;
     return (
@@ -62,16 +64,5 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  cardName: PropTypes.string.isRequired,
-  cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
-  cardImage: PropTypes.string.isRequired,
-  cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.bool.isRequired,
-};
 
 export default App;
