@@ -3,8 +3,6 @@ import Form from './components/Form';
 import Card from './components/Card';
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
   state = {
     cardName: '',
     cardDescription: '',
@@ -12,11 +10,16 @@ class App extends React.Component {
     cardAttr2: 0,
     cardAttr3: 0,
     cardImage: '',
-    cardRare: '',
+    cardRare: 'normal',
     cardTrunfo: false,
     // hasTrunfo: false,
     isSaveButtonDisabled: true,
+    cardList: [],
   };
+
+  // validateTrunfo = () => {
+  //   const { cardList } = this.state;
+  // }
 
   validateInputs = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
@@ -50,7 +53,30 @@ class App extends React.Component {
     }, this.validateInputs);
   };
 
-  onSaveButtonClick = () => {};
+  onSaveButtonClick = () => {
+    const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
+      cardRare, cardTrunfo } = this.state;
+    const cardElement = { cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo };
+    this.setState((prevState) => ({
+      cardList: [...prevState.cardList, cardElement],
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+    }));
+  };
 
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
