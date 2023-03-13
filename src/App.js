@@ -48,7 +48,6 @@ class App extends React.Component {
     if (attr1 < 0 || attr2 < 0 || attr3 < 0) {
       return this.setState({ isSaveButtonDisabled: true });
     }
-
     this.setState({ isSaveButtonDisabled: false });
   };
 
@@ -58,7 +57,7 @@ class App extends React.Component {
       {
         [target.name]: value,
       },
-      this.validateInputs(),
+      this.validateInputs,
       // this.validateTrunfo();
     );
   };
