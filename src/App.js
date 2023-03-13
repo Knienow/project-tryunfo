@@ -102,7 +102,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
-      // cardList,
+      cardList,
     } = this.state;
     return (
       <div>
@@ -132,21 +132,20 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        {/* requisito 8 - map para percorrer o cardList
-        { cardList.map((card, index) => (
-          <div key={ index }>
+        { cardList.map((card) => (
+          <div key={ card.name }>
             <Card
-              cardName={ card.cardName }
-              cardDescription={ card.cardDescription }
-              cardAttr1={ card.cardAttr1 }
-              cardAttr2={ card.cardAttr2 }
-              cardAttr3={ card.cardAttr3 }
-              cardImage={ card.cardImage }
-              cardRare={ card.cardRare }
-              cardTrunfo={ card.cardTrunfo }
+              cardName={ card.name }
+              cardDescription={ card.description }
+              cardAttr1={ card.attribute1 }
+              cardAttr2={ card.attribute2 }
+              cardAttr3={ card.attribute3 }
+              cardImage={ card.image }
+              cardRare={ card.rare }
+              cardTrunfo={ card.superTrunfo }
             />
           </div>
-        ))} */}
+        ))}
       </div>
     );
   }
